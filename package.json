@@ -13,11 +13,16 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "get-mongodb-version": "^2.0.0",
     "heroku": "^7.22.7",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jquery": "^3.3.1",
+    "mongodb": "^3.2.2",
+    "mongolab-data-api": "^1.1.6",
     "mongoose": "^5.4.20",
-    "morgan": "~1.9.0"
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "serve-favicon": "^2.5.0"
   }
 }
