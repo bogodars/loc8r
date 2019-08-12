@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
 let dbURI = 'mongodb://localhost/Loc8r';
-if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGODB_URI;
+if ( process.env.NODE_ENV == 'production') {
+  dbURI =  process.env.MONGOLAB_URI;
 }
-
-
-mongoose.connect(dbURI, {
-  useCreateIndex: true,
-  useNewUrlParser: true
-});
+mongoose.connect(dbURI, { useNewUrlParser: true });
 
 mongoose.connection.on('connected', () => {
   console.log(`Mongoose connected to ${dbURI}`);
@@ -27,7 +22,7 @@ const gracefulShutdown = (msg, callback) => {
   });
 };
 
-// For nodemon restarts
+// For nodemon restarts                                 
 process.once('SIGUSR2', () => {
   gracefulShutdown('nodemon restart', () => {
     process.kill(process.pid, 'SIGUSR2');
@@ -47,3 +42,4 @@ process.on('SIGTERM', () => {
 });
 
 require('./locations');
+

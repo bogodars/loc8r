@@ -34,17 +34,17 @@ const reviewsReadOne = function (req, res) {
       .findById(req.params.locationid)
       .exec((err, location) => {
         if (!location) {
-          res
-            .status(404)
-            .json({
-              "message": "location id not found"
-            });
+          res	
+            .status(404) 
+            .json({	
+              "message": "locationid not found"
+            });	 
           return;
         } else if (err) {
-          res
-            .status(404)
-            .json(err);
-          return;
+          res	
+            .status(404) 
+            .json(err); 
+          return; 	
         }
         if (location.reviews && location.reviews.length > 0) {
           const review = location.reviews.id(req.params.reviewid);
@@ -72,14 +72,14 @@ const reviewsReadOne = function (req, res) {
             .json({
               "message": "No reviews found"
           });
-        }
+        } 
       });
-  } else {
-    res
-      .status(404)
-      .json({
+  } else {		
+    res		
+      .status(404) 	
+      .json({	
         "message": "Not found, locationid and reviewid are both required"
-      });
+      });		
   }
 };
 
@@ -100,7 +100,7 @@ const reviewsUpdateOne = function (req, res) {
         res
           .status(404)
           .json({
-            "message": "location id not found"
+            "message": "locationid not found"
           });
         return;
       } else if (err) {
@@ -162,7 +162,7 @@ const reviewsDeleteOne = function (req, res) {
         res
           .status(404)
           .json({
-            "message": "location id not found"
+            "message": "locationid not found"
           });
         return;
       } else if (err) {
@@ -211,7 +211,7 @@ const _doAddReview = function(req, res, location) {
     res
       .status(404)
       .json({
-        "message": "location id not found"
+        "message": "locationid not found"
       });
   } else {
     location.reviews.push({
@@ -221,6 +221,7 @@ const _doAddReview = function(req, res, location) {
     });
     location.save((err, location) => {
       if (err) {
+        console.log(err);
         res
           .status(400)
           .json(err);
@@ -241,7 +242,7 @@ const _updateAverageRating = function(locationid) {
     .select('rating reviews')
     .exec((err, location) => {
       if (!err) {
-        doSetAverageRating(location);
+        _doSetAverageRating(location); 
       }
     });
 };
