@@ -20,7 +20,7 @@
     "jquery": "^3.3.1",
     "mongodb": "^3.2.2",
     "mongolab-data-api": "^1.1.6",
-    "mongoose": "^5.4.20",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "pug": "^2.0.3",
